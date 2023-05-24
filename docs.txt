@@ -1,0 +1,42 @@
+- To install object_detection=
+    https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html
+
+- If MSBuild error is thrown, do the same instruction but in powershell
+    - python -m pip install  .  <- without flag
+    - Didn't really worked. Later on it every build issue were fixed.
+
+- pip install protobuf matplotlib==3.2
+
+- Install Tensorflow Object Detection
+    url = "https://github.com/protocolbuffers/protobuf/releases/download/v3.15.6/protoc-3.15.6-win64.zip"
+    Add /bin/ to path
+    cd Tensorflow/models/research && protoc object_detection/protos/*.proto --python_out=. && copy object_detection\\\\packages\\\\tf2\\\\setup.py setup.py && python setup.py build && python setup.py install
+    cd Tensorflow/models/research/slim && pip install -e .
+
+- Run custom python script for labels:
+    - https://github.com/nicknochnack/GenerateTFRecord
+    - python "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\scripts\generate_tfrecord.py" -x "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\workspace\images\train" -l "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\workspace\annotations\label_map.pbtxt" -o "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\workspace\annotations\train.record"
+    - python "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\scripts\generate_tfrecord.py" -x "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\workspace\images\test" -l "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\workspace\annotations\label_map.pbtxt" -o "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c\Tensorflow\workspace\annotations\test.record"
+
+- If build error
+    -https://sourceforge.net/projects/mingw/files/latest/download
+
+- For building stuff, use Anaconda prompt and
+    - conda activate C:\Users\jtorn\miniconda3\envs\ray_c
+    - cd "C:\Users\jtorn\Desktop\Dev\Redes neuronales e AI\ray_c"
+
+- OPTIMIZE:
+    - Generalizing data (different types, shapes, colors, directions)
+    - More data for specific unperformant labels.
+    - Longer trainings.
+    - Changing architecture
+    - Implement https://github.com/aio-libs/aiohttp for calls
+        - https://stackoverflow.com/questions/9110593/asynchronous-requests-with-python-requests
+    - FEAT: Train a 'posses' hypernetwork.
+    - TODO new card:
+        - Classify some image with polygons
+            - More specific to body part!
+        - Try new new model that accepts Img Segmentation
+
+
+auto labelling con IA ? - DONE

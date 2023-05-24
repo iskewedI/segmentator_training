@@ -1,0 +1,11 @@
+item {
+  id: 1
+  name: 'upper_clothes'
+}
+
+item {
+  id: 2
+  name: 'lower_clothes'
+}
+
+

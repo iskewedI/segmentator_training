@@ -1,0 +1,51 @@
+1) Mask JUST the body part. Anything else.
+	- Original filling method
+	- CROP AND RESIZE!! IMPORTANT!!!
+        - Just the part of the body to inpaint
+		- CFG Scale: 11
+		- fill method
+		- Euler
+		- DS 0.75
+
+- Send to inpaint again
+	- Mask borders, with 5px or 10px more (correcting)
+		- Previous result seed
+		- "Only Masked" inpaint area
+		- "32" only masked padding pixels
+		- 0.65 Denoising Strength
+		- 35 sampling steps.
+		- "Original" masked content
+		- 6 mask blur
+
+- Send result to inpaint
+		- Bigger mask
+		- "Only masked" inpaint area
+		- +2 Mask blur
+		- -0.10 DS
+		- -5 sampling steps
+	- x3 times?
+
+- Last time just fill the mask and do it again, with the last settings.
+	- Should have 0.45 DS.
+	- Corrects weird things.
+
+- FINAL: Entire body (except face) mask
+	- Denoising strenght 0.05
+		- -0.01 each time
+		- min 0.01.
+	- Mask blur 12
+	- original masked content
+	- 20 sampling steps
+	- +3 CFG Scale each time.
+		- Max 20.
+	- +x4 times
+
+TIPS:
+	- 0.30 DS can remove small things like pieces of bra or broken clothes, remains of clothes.
+
+- Save each iteration result.
+	- Show all images in parallel side by side meanwhile every iteration is running.
+	- Let user choice desired images in UI.
+- Let user remove the Interrogation tags that represents the OPPOSITE of what they want
+	- Show them in a UI and let user remove and add positive and negative tags!
+- OR let user decide which parts to improve?
